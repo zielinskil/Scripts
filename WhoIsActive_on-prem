@@ -7,6 +7,7 @@
 			(select name from sys.databases where database_id = req.database_id) as dbName,
 			sqltext.TEXT,
 			req.session_id,
+			blocking_session_id,
 			req.status,
 			req.command,
 			req.cpu_time,
