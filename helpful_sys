@@ -1,0 +1,4 @@
+SELECT count(1), collation_name
+FROM INFORMATION_SCHEMA.COLUMNS (nolock)
+where TABLE_CATALOG = 'frbiengineeringdm'
+group by collation_name
