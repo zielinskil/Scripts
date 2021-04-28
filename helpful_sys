@@ -2,3 +2,12 @@ SELECT count(1), collation_name
 FROM INFORMATION_SCHEMA.COLUMNS (nolock)
 where TABLE_CATALOG = 'frbiengineeringdm'
 group by collation_name
+
+----Schema/table/column
+SELECT   s.name,o.Name, c.Name,*
+FROM     sys.columns c 
+         JOIN sys.objects o ON o.object_id = c.object_id 
+		 JOIN sys.schemas s on o.schema_id = s.schema_id
+WHERE    o.type = 'U' 
+and c.name like '%licence%'
+ORDER BY o.Name, c.Name
